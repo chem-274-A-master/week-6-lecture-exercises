@@ -2,6 +2,7 @@
 // include a source file. This is one exception though :)
 // Call it "instructor's privilege"
 #include <main.cpp>
+#include <string>
 
 #include <cassert>
 

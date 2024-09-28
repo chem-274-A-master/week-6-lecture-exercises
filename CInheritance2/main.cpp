@@ -10,6 +10,7 @@
    call the display() function of whatever class type was given to it
  */
 
+#include <iostream>
 #include <string>
 
 class Employee

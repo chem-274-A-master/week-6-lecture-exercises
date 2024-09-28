@@ -9,9 +9,7 @@
 
 */
 
-#include <iostream>
 #include <string>
-#include <vector>
 
 class Employee
 {
@@ -36,14 +34,3 @@ class Employee
 
 
 /* Programmer code here */
-
-int main(void)
-{
-  /* testing code below */
-  Programmer p(1, "Dr. Pritchard", {"C++", "Python", "fortran"});
-
-  auto langs = p.languages();
-  for(const auto & l : langs)
-    std::cout << l << std::endl;
-  return 0;
-}

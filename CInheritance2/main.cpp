@@ -9,7 +9,7 @@
    Your goal: Change the print_employee function (to use templates) so that it will successfully
    call the display() function of whatever class type was given to it
  */
-#include <iostream>
+
 #include <string>
 
 class Employee
@@ -59,13 +59,4 @@ class Scientist: public Employee
 void print_employee(const Employee & emp)
 {
     emp.display();
-}
-
-int main(void)
-{
-    Employee bill(1, "Bill");
-    Scientist emily(2, "Emily", "chemistry");
-
-    print_employee(bill);
-    print_employee(emily);
 }

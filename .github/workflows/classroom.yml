@@ -1,0 +1,61 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: CInheritance_1
+      id: cinheritance_1
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: CInheritance_1
+        command: cd CInheritance1 && bash run_test.sh
+        timeout: 20
+        max-score: 1
+
+    - name: CInheritance_2
+      id: cinheritance_2
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: CInheritance_2
+        command: cd CInheritance2 && bash run_test.sh
+        timeout: 20
+        max-score: 1
+
+    - name: CTemplates_1
+      id: ctemplates_1
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: CTemplates_1
+        command: cd CTemplates1 && bash run_test.sh
+        timeout: 20
+        max-score: 1
+
+    - name: CTemplates_2
+      id: ctemplates_2
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: CTemplates_2
+        command: cd CTemplates2 && bash run_test.sh
+        timeout: 20
+        max-score: 1
+
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        CINHERITANCE_1_RESULTS: "${{steps.cinheritance_1.outputs.result}}"
+        CINHERITANCE_2_RESULTS: "${{steps.cinheritance_2.outputs.result}}"
+        CTEMPLATES_1_RESULTS: "${{steps.ctemplates_1.outputs.result}}"
+        CTEMPLATES_2_RESULTS: "${{steps.ctemplates_2.outputs.result}}"
+      with:
+        runners: cinheritance_1,cinheritance_2,ctemplates_1,ctemplates_2

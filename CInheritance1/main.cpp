@@ -5,6 +5,9 @@
   to a Programmer class, which, stores a vector of programming languages
   that the programmer is familiar with.
 
+  The languages should be passed in as a third argument to the constructor (along with
+  the arguments for the constructor of the Employee base class).
+
   These should be accessible through a languages() member function
 
 */

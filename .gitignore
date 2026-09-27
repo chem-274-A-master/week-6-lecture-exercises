@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Local test and grading output
+CInheritance*/run_test
+CTemplates*/run_test
+grading-results.json
+__pycache__/
